@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax</title>
+    <script>
+        function ajaxRequest() {
+            var xmlHttpRequest = new XMLHttpRequest();
+            xmlHttpRequest.open("GET", "http://localhost:8080/0927_JSONandAjax/MyServlet", true);
+            xmlHttpRequest.onreadystatechange = function () {
+                if (xmlhttprequest.readyState == 4 && xmlhttprequest.status == 200) {
+                    var jsonObj = JSON.parse(xmlHttpRequest.responseText);
+                    // 把响应的数据显示在页面上
+                    document.getElementById("div01").innerHTML = "编号：" + jsonObj.id + " , 姓名：" + jsonObj.name + ", 年龄:" + jsonObj.age + ", 性别:" + jsonObj.sex;
+                }
+            };
+        }
+    </script>
+</head>
+<body>
+<div id="div01">
+    <h2>这是div</h2>
+    <button onclick="ajaxRequest()">send ajax request</button>
+</div>
+</body>
+</html>

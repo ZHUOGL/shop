@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jq</title>
+    <script src="static/js/jquery-1.11.3.min.js"></script>
+    <script>
+        $(function () {
+            $("#btn").click(
+                $.ajax({
+                    url: "http://localhost:8080/0927JSONandAjax_war_exploded/Servlet2JQ",
+                    data: {action: "jQueryAjax"},
+                    type: "GET",
+                    success: function (data) {
+                        // alert("服务器返回的数据是：" + data);
+                        var jsonObj = JSON.parse(data);
+                        $("#div1").html("编号：" + jsonObj.id + " , 姓名：" + jsonObj.name + ", 年龄:" + jsonObj.age + ", 性别:" + jsonObj.sex);
+                    },
+                    dataType: "text"
+                })
+            );
+        })
+    </script>
+</head>
+<body>
+<div id="div1">
+    <button id="btn">jQuery ajax request</button>
+    <h3>这里打印信息</h3>
+
+</div>
+</body>
+</html>

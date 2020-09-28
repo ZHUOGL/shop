@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ebank" />
+        <module name="0927JSONandAjax" />
+        <module name="memberManage" />
+        <module name="messageManageSystem" />
+        <module name="memberDB" />
+        <module name="shop" />
+        <module name="0925" />
+        <module name="0924" />
+        <module name="0923" />
+        <module name="0924homework" />
+        <module name="0921" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="0921" target="1.8" />
+      <module name="0921demo" target="1.8" />
+      <module name="0923" target="1.8" />
+      <module name="0924" target="1.8" />
+      <module name="0924homework" target="1.8" />
+      <module name="0925" target="1.8" />
+      <module name="0927JSONAjax" target="1.8" />
+      <module name="0927JSONandAjax" target="1.8" />
+      <module name="ebank" target="1.8" />
+      <module name="memberDB" target="1.8" />
+      <module name="memberManage" target="1.8" />
+      <module name="messageManageSystem" target="1.8" />
+      <module name="shop" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

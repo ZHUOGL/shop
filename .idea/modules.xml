@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/0910demo/0910demo.iml" filepath="$PROJECT_DIR$/0910demo/0910demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/0910hm/0910hm.iml" filepath="$PROJECT_DIR$/0910hm/0910hm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/0921/0921.iml" filepath="$PROJECT_DIR$/0921/0921.iml" />
+      <module fileurl="file://$PROJECT_DIR$/0922/0922.iml" filepath="$PROJECT_DIR$/0922/0922.iml" />
+      <module fileurl="file://$PROJECT_DIR$/0923/0923.iml" filepath="$PROJECT_DIR$/0923/0923.iml" />
+      <module fileurl="file://$PROJECT_DIR$/0923homework/0923homework.iml" filepath="$PROJECT_DIR$/0923homework/0923homework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/0924/0924.iml" filepath="$PROJECT_DIR$/0924/0924.iml" />
+      <module fileurl="file://$PROJECT_DIR$/0924homework/0924homework.iml" filepath="$PROJECT_DIR$/0924homework/0924homework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/0925/0925.iml" filepath="$PROJECT_DIR$/0925/0925.iml" />
+      <module fileurl="file://$PROJECT_DIR$/0927JSONandAjax/0927JSONandAjax.iml" filepath="$PROJECT_DIR$/0927JSONandAjax/0927JSONandAjax.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WebStudy.iml" filepath="$PROJECT_DIR$/WebStudy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ebank/ebank.iml" filepath="$PROJECT_DIR$/ebank/ebank.iml" />
+      <module fileurl="file://$PROJECT_DIR$/memberDB/memberDB.iml" filepath="$PROJECT_DIR$/memberDB/memberDB.iml" />
+      <module fileurl="file://$PROJECT_DIR$/memberManage/memberManage.iml" filepath="$PROJECT_DIR$/memberManage/memberManage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/messageManageSystem/messageManageSystem.iml" filepath="$PROJECT_DIR$/messageManageSystem/messageManageSystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shop/shop.iml" filepath="$PROJECT_DIR$/shop/shop.iml" />
+    </modules>
+  </component>
+</project>
