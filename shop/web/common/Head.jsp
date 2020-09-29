@@ -7,7 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    //    http://localhost:8083/memberdb/
     String basePath = request.getScheme()
             + "://"
             + request.getServerName()
@@ -16,3 +15,8 @@
             + request.getContextPath()
             + "/";
 %>
+<base href="<%=basePath%>">
+<link type="text/css" rel="stylesheet" href="static/css/style.css">
+<link href="static/css/bootstrap.min.css" rel="stylesheet"/>
+<script src="static/js/jquery-1.11.3.min.js"></script>
+<script src="static/js/bootstrap.js"></script>

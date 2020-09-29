@@ -1,21 +1,20 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>商品管理</title>
-		<link type="text/css" rel="stylesheet" href="../../static/css/style.css">
-		<link href="static/css/bootstrap.min.css" rel="stylesheet" />
-		<script src="static/js/jquery-1.11.3.min.js"></script>
-		<script src="static/js/bootstrap.js"></script>
+		<%@ include file="/common/Head.jsp" %>
 	</head>
 	<body>
 
 		<div id="header">
-			<img class="logo_img" alt="" src="../../static/img/logo.gif">
+			<img class="logo_img" alt="" src="static/img/logo.gif">
 			<span class="wel_word">商品管理系统</span>
 			<div>
-				<a href="shop_manager.html">商品管理</a>
-				<a href="order_manager.html">订单管理</a>
-				<a href="../../index.jsp">返回商城</a>
+				<a href="/pages/manager/shop_manager.jsp">商品管理</a>
+				<a href="/pages/manager/order_manager.jsp">订单管理</a>
+				<a href="index.jsp">返回商城</a>
 			</div>
 		</div>
 
@@ -35,7 +34,7 @@
 					<td>奥利给</td>
 					<td>200</td>
 					<td>400</td>
-					<td><a href="shop_edit.html">修改</a></td>
+					<td><a href="/pages/manager/shop_edit.jsp">修改</a></td>
 					<td><a href="#">删除</a></td>
 				</tr>
 
@@ -45,7 +44,7 @@
 					<td>奥利给</td>
 					<td>200</td>
 					<td>400</td>
-					<td><a href="shop_edit.html">修改</a></td>
+					<td><a href="/pages/manager/shop_edit.jsp">修改</a></td>
 					<td><a href="#">删除</a></td>
 				</tr>
 
@@ -55,7 +54,7 @@
 					<td>奥利给</td>
 					<td>200</td>
 					<td>400</td>
-					<td><a href="shop_edit.html">修改</a></td>
+					<td><a href="/pages/manager/shop_edit.jsp">修改</a></td>
 					<td><a href="#">删除</a></td>
 				</tr>
 
@@ -65,7 +64,7 @@
 					<td>奥利给</td>
 					<td>200</td>
 					<td>400</td>
-					<td><a href="shop_edit.html">修改</a></td>
+					<td><a href="/pages/manager/shop_edit.jsp">修改</a></td>
 					<td><a href="#">删除</a></td>
 				</tr>
 
@@ -76,7 +75,7 @@
 					<td></td>
 					<td></td>
 					<td></td>
-					<td><a href="shop_edit.html">添加商品</a></td>
+					<td><a href="/pages/manager/shop_edit.jsp">添加商品</a></td>
 				</tr>
 			</table>
 		</div>

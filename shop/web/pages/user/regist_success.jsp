@@ -24,7 +24,7 @@
     <span class="wel_word"></span>
     <div>
         <span>欢迎<span class="um_span">用户</span>光临网上商城</span>
-        <a href="../order/order.html">我的订单</a>
+        <a href="../order/order.jsp">我的订单</a>
         <a href="../../index.jsp">注销</a>&nbsp;&nbsp;
         <a href="../../index.jsp">返回</a>
     </div>

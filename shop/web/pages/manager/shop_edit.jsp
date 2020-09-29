@@ -1,11 +1,10 @@
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>编辑商品</title>
-		<link type="text/css" rel="stylesheet" href="../../static/css/style.css">
-		<link href="static/css/bootstrap.min.css" rel="stylesheet" />
-		<script src="static/js/jquery-1.11.3.min.js"></script>
-		<script src="static/js/bootstrap.js"></script>
+		<%@ include file="/common/Head.jsp" %>
 		<style type="text/css">
 			h1 {
 				text-align: center;
@@ -23,17 +22,17 @@
 	</head>
 	<body>
 		<div id="header">
-			<img class="logo_img" alt="" src="../../static/img/logo.gif">
+			<img class="logo_img" alt="" src="static/img/logo.gif">
 			<span class="wel_word">编辑商品</span>
 			<div>
-				<a href="shop_manager.html">商品管理</a>
-				<a href="order_manager.html">订单管理</a>
-				<a href="../../index.jsp">返回商城</a>
+				<a href="/pages/manager/shop_manager.jsp">商品管理</a>
+				<a href="/pages/manager/order_manager.jsp">订单管理</a>
+				<a href="index.jsp">返回商城</a>
 			</div>
 		</div>
 
 		<div id="main">
-			<form action="shop_manager.html">
+			<form action="/pages/manager/shop_manager.jsp">
 				<table>
 					<tr>
 						<td>名称</td>

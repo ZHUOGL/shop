@@ -1,5 +1,7 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+
     <!--		将网上商城项目的前端注册页面添加校验：
     验证用户名： 必须由字母， 数字下划线组成， 并且长度为 5 到 12 位
     验证密码： 必须由字母， 数字下划线组成， 并且长度为 5 到 12 位
@@ -8,10 +10,7 @@
     验证码： 现在只需要验证用户已输入。 因为还没讲到服务器。 验证码生成。-->
     <meta charset="UTF-8">
     <title>网上商城会员注册页面</title>
-    <link type="text/css" rel="stylesheet" href="../../static/css/style.css">
-    <link href="../../static/css/bootstrap.min.css" rel="stylesheet"/>
-    <script src="../../static/js/jquery-1.11.3.min.js"></script>
-    <script src="../../static/js/bootstrap.js"></script>
+    <%@ include file="/common/Head.jsp" %>
     <style type="text/css">
         .login_form {
             height: 420px;
@@ -21,6 +20,19 @@
     <script type="text/javascript">
         //页面加载完成之后
         $(function () {
+            $("#username").focusout(function () {
+                $.ajax({
+                    url: "http://localhost:8080/shop_war_exploded2/RegistServlet",
+                    data: {action: $("#username").val()},
+                    type: "GET",
+                    success: function (data) {
+                        //alert("服务器返回的数据是：" + data);
+                        //var jsonObj = JSON.parse(data);
+                        $("#span1").html(data);
+                    },
+                    dataType: "text"
+                })
+            });
             //给注册添加单击事件
             $("#sub_btn").click(function () {
                 // 验证用户名： 必须由字母， 数字下划线组成， 并且长度为 5 到 12 位
@@ -84,7 +96,7 @@
 </head>
 <body>
 <div id="login_header">
-    <img class="logo_img" alt="" src="../../static/img/logo.gif">
+    <img class="logo_img" alt="" src="static/img/logo.gif">
 </div>
 
 <div class="login_banner">
@@ -101,10 +113,12 @@
                     <span class="errorMsg"></span>
                 </div>
                 <div class="form">
-                    <form action="regist_success.html">
+                    <form action="RegistServlet" method="post">
+                        <br>
                         <label>用户名称：</label>
                         <input class="itxt" type="text" placeholder="请输入用户名" autocomplete="off" tabindex="1"
                                name="username" id="username"/>
+                        <span id="span1"></span>
                         <br/>
                         <br/>
                         <label>用户密码：</label>
@@ -123,12 +137,12 @@
                         <br/>
                         <br/>
                         <label>验证码：</label>
-                        <input class="itxt" type="text" style="width: 150px;" id="code"/>
-                        <img alt="" src="../../static/img/code.bmp" style="float: right; margin-right: 40px">
+                        <input class="itxt" type="text" style="width: 150px;" id="code" name="code"/>
+                        <img alt="" src="kaptcha.jpg" style="float: right; margin-right: 40px">
                         <br/>
+                        <span id="info">${info}</span>
                         <br/>
                         <input type="submit" value="注册" id="sub_btn"/>
-
                     </form>
                 </div>
 

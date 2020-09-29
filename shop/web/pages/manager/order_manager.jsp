@@ -1,11 +1,10 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>订单管理</title>
-		<link type="text/css" rel="stylesheet" href="../../static/css/style.css">
-		<link href="static/css/bootstrap.min.css" rel="stylesheet" />
-		<script src="static/js/jquery-1.11.3.min.js"></script>
-		<script src="static/js/bootstrap.js"></script>
+		<%@ include file="/common/Head.jsp" %>
 	</head>
 	<body>
 
@@ -13,9 +12,9 @@
 			<img class="logo_img" alt="" src="../../static/img/logo.gif">
 			<span class="wel_word">订单管理系统</span>
 			<div>
-				<a href="shop_manager.html">商品管理</a>
-				<a href="order_manager.html">订单管理</a>
-				<a href="../../index.jsp">返回商城</a>
+				<a href="/pages/manager/shop_manager.jsp">商品管理</a>
+				<a href="/pages/manager/order_manager.jsp">订单管理</a>
+				<a href="index.jsp">返回商城</a>
 			</div>
 		</div>
 

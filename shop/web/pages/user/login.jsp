@@ -1,18 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%String message = (String) request.getAttribute("message");%>
+
 <%String loginName = (String) request.getAttribute("loginName");%>
-<%@ include file="/common/Head.jsp" %>
 <html>
 <head>
-    <base href="<%=basePath%>">
+    <%@ include file="/common/Head.jsp" %>
     <meta charset="UTF-8">
     <title>网上商城会员登录页面</title>
-    <link type="text/css" rel="stylesheet" href="static/css/style.css">
-    <link href="static/css/bootstrap.min.css" rel="stylesheet"/>
-    <script src="static/js/jquery-1.11.3.min.js"></script>
-    <script src="static/js/bootstrap.js"></script>
     <script>
         $(function () {
+            //验证账号合法
+
             $("#input1").focusout(function () {
                 $.ajax({
                     url: "http://localhost:8080/shop_war_exploded2/LoginServlet",
@@ -24,8 +21,18 @@
                         $("#span1").html(data);
                     },
                     dataType: "text"
-                })
+                });
             });
+            // $("sub_btn").click(function () {
+            //     $.ajax({
+            //         url: "http://localhost:8080/shop_war_exploded2/LoginServlet",
+            //         data: {username: $("#input1").val(), password: $("#password1"), code: $("#code")},
+            //         type: "POST",
+            //         success: function (data) {
+            //             $("#span2").html(data);
+            //         }
+            //     })
+            // })
         })
     </script>
 </head>
@@ -45,7 +52,7 @@
             <div class="login_box">
                 <div class="tit">
                     <h1>网上商城会员</h1>
-                    <a href="pages/user/regist.html">立即注册</a>
+                    <a href="pages/user/regist.jsp">立即注册</a>
                 </div>
                 <div class="msg_cont">
                     <b></b>
@@ -62,15 +69,24 @@
                         <label>用户密码：</label>
                         <input class="itxt" type="password" placeholder="请输入密码" autocomplete="off" tabindex="1"
                                name="password" id="password1"/>
+                        <span id="span2"></span>
                         <br/>
                         <br/>
+                        <img src="kaptcha.jpg" alt="" style="width: 200px; height: 35px;" align="center">
+                        <br/>
+                        <br/>
+                        <label>验证码：</label>
+                        <input class="itxt" type="text" placeholder="请输入验证码" autocomplete="off" tabindex="1"
+                               name="code" id="code"/>
+                        <span id="span3"></span>
+                        <br>
                         <input type="submit" value="登录" id="sub_btn"/>
                         <br/>
-                        <%if (message != null) {%>
+
                         <h3>
-                            <%=message%>
+                            ${requestScope.message}
                         </h3>
-                        <%}%>
+
                     </form>
                 </div>
 
