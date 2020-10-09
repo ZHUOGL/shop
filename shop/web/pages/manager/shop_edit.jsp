@@ -41,6 +41,7 @@
     <form action="GoodsServlet">
         <input type="hidden" name="action" value="${empty param.id ? "add":"update"}">
         <input type="hidden" name="id" value="${requestScope.goods.id}">
+        <input type="hidden" name="pageNo" value="${param.pageNo}">
         <table>
             <tr>
                 <td>名称</td>

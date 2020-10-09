@@ -4,6 +4,7 @@
 <html>
 <head>
     <%@ include file="/common/Head.jsp" %>
+    <%--    <%=basePath%>--%>
     <meta charset="UTF-8">
     <title>网上商城会员登录页面</title>
     <script>
@@ -32,19 +33,19 @@
             });
             $("#sub_btn").click(function () {
                 console.log("测试");
-                var loginname=$("#input1").val();
-                var pwd=$("#password1").val();
-                var code=$("#code").val();
+                var loginname = $("#input1").val();
+                var pwd = $("#password1").val();
+                var code = $("#code").val();
                 console.log(loginname);
-                if (loginname==null||loginname=="") {
+                if (loginname == null || loginname == "") {
                     $(".errorMsg").text("请输入账号！");
                     return false;
                 }
-                if (pwd==null||pwd=="") {
+                if (pwd == null || pwd == "") {
                     $(".errorMsg").text("请输入密码！");
                     return false;
                 }
-                if (code==null||code=="") {
+                if (code == null || code == "") {
                     $(".errorMsg").text("请输入验证码！");
                     return false;
                 }
@@ -86,7 +87,7 @@
                         <br/>
                         <label>用户密码：</label>
                         <input class="itxt" type="password" placeholder="请输入密码" autocomplete="off" tabindex="1"
-                               name="password" id="password1" />
+                               name="password" id="password1"/>
                         <br/>
                         <br/>
                         <img src="kaptcha.jpg" alt="" style="width: 200px; height: 35px;" align="center" id="code_img">
@@ -106,6 +107,8 @@
         </div>
     </div>
 </div>
+
+<span>${requestScope.basePath};</span>
 
 <%@ include file="/common/Bottom.jsp" %>
 </body>
