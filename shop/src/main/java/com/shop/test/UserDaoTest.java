@@ -3,10 +3,19 @@ package com.shop.test;
 import com.shop.bean.User;
 import com.shop.dao.UserDao;
 import com.shop.dao.impl.UserDaoImpl;
+import com.shop.service.Impl.UserServiceImpl;
+import com.shop.service.UserService;
 import org.junit.Test;
 
 public class UserDaoTest {
     UserDao userDao = new UserDaoImpl();
+    UserService userService = new UserServiceImpl();
+
+    @Test
+    public void testServiceLogin() {
+        User user = new User("test", "test", "0");
+        System.out.println(userService.login(user));
+    }
 
     @Test
     public void queryUserByUserName() {
@@ -19,7 +28,10 @@ public class UserDaoTest {
 
     @Test
     public void queryUserByUserNameAndPassword() {
-        if (userDao.queryUserByUserNameAndPassword("admin", "123456") == null) {
+        User user = new User();
+        user.setUsername("admin");
+        user.setPassword("123456");
+        if (userDao.queryUserByUserNameAndPassword(user) == null) {
             System.out.println("账号不存在或者密码错误！");
         } else {
             System.out.println("登录成功！");
@@ -37,15 +49,13 @@ public class UserDaoTest {
     }
 
     @Test
-    public void testExist() {
-        System.out.println(userDao.loginnameExist("1"));
+    public void testLogin() {
+        User user = new User("test", "test", "@qq.com");
+        System.out.println(userDao.queryUserByUserNameAndPassword(user));
     }
 
     @Test
-    public void testLogin() {
-        String loginname = "admin";
-        String password = "1";
-        boolean flag = userDao.login(loginname, password);
-        System.out.println(flag);
+    public void testExist() {
+        System.out.println(userDao.loginnameExist("1"));
     }
 }

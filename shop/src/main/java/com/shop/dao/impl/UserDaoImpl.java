@@ -14,9 +14,9 @@ public class UserDaoImpl extends BaseDao implements UserDao {
     }
 
     @Override
-    public User queryUserByUserNameAndPassword(String username, String password) {
+    public User queryUserByUserNameAndPassword(User user) {
         String sql = "SELECT * FROM T_user  WHERE  username =?AND password=?";
-        return queryForOne(User.class, sql, username, password);
+        return queryForOne(User.class, sql, user.getUsername(), user.getPassword());
     }
 
     @Override
@@ -33,17 +33,6 @@ public class UserDaoImpl extends BaseDao implements UserDao {
             return false;
         } else {
             return true;
-        }
-    }
-
-    @Override
-    public boolean login(String loginname, String password) {
-        UserDao userDao = new UserDaoImpl();
-        User user = userDao.queryUserByUsername(loginname);
-        if (password.equals(user.getPassword())) {
-            return true;
-        } else {
-            return false;
         }
     }
 }

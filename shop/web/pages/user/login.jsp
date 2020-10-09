@@ -9,12 +9,11 @@
     <script>
         $(function () {
             //验证账号合法
-
             $("#input1").focusout(function () {
                 $.ajax({
-                    url: "http://localhost:8080/shop_war_exploded2/LoginServlet",
-                    data: {action: $("#input1").val()},
-                    type: "GET",
+                    url: "http://localhost:8080/shop_war_exploded2/UserServlet",
+                    data: {action: "loginHelp", loginname: $("#input1").val()},
+                    type: "POST",
                     success: function (data) {
                         //alert("服务器返回的数据是：" + data);
                         //var jsonObj = JSON.parse(data);
@@ -23,17 +22,35 @@
                     dataType: "text"
                 });
             });
-            // $("sub_btn").click(function () {
-            //     $.ajax({
-            //         url: "http://localhost:8080/shop_war_exploded2/LoginServlet",
-            //         data: {username: $("#input1").val(), password: $("#password1"), code: $("#code")},
-            //         type: "POST",
-            //         success: function (data) {
-            //             $("#span2").html(data);
-            //         }
-            //     })
-            // })
+            //点击刷新验证码
+            $("#code_img").click(function () {
+
+                // 在事件响应的function 函数中有一个this 对象。这个this 对象，是当前正在响应事件的dom 对象
+                // src 属性表示验证码 img 标签的 图片路径。它可读，可写
+                // alert(this.src);
+                this.src = "${basePath}kaptcha.jpg?d=" + new Date();
+            });
+            $("#sub_btn").click(function () {
+                console.log("测试");
+                var loginname=$("#input1").val();
+                var pwd=$("#password1").val();
+                var code=$("#code").val();
+                console.log(loginname);
+                if (loginname==null||loginname=="") {
+                    $(".errorMsg").text("请输入账号！");
+                    return false;
+                }
+                if (pwd==null||pwd=="") {
+                    $(".errorMsg").text("请输入密码！");
+                    return false;
+                }
+                if (code==null||code=="") {
+                    $(".errorMsg").text("请输入验证码！");
+                    return false;
+                }
+            });
         })
+
     </script>
 </head>
 <body>
@@ -59,34 +76,29 @@
                     <span class="errorMsg">请输入用户名和密码</span>
                 </div>
                 <div class="form">
-                    <form action="LoginServlet" method="post">
+                    <form action="UserServlet" method="post">
+                        <input type="hidden" name="action" value="login">
                         <label>用户名称：</label>
                         <input class="itxt" type="text" placeholder="请输入用户名" autocomplete="off" tabindex="1"
-                               name="username" id="input1"/>
+                               name="username" id="input1" value="${requestScope.username}"/>
                         <span id="span1"></span>
                         <br/>
                         <br/>
                         <label>用户密码：</label>
                         <input class="itxt" type="password" placeholder="请输入密码" autocomplete="off" tabindex="1"
-                               name="password" id="password1"/>
-                        <span id="span2"></span>
+                               name="password" id="password1" />
                         <br/>
                         <br/>
-                        <img src="kaptcha.jpg" alt="" style="width: 200px; height: 35px;" align="center">
+                        <img src="kaptcha.jpg" alt="" style="width: 200px; height: 35px;" align="center" id="code_img">
+                        <span>${message}</span>
                         <br/>
                         <br/>
                         <label>验证码：</label>
                         <input class="itxt" type="text" placeholder="请输入验证码" autocomplete="off" tabindex="1"
                                name="code" id="code"/>
-                        <span id="span3"></span>
                         <br>
                         <input type="submit" value="登录" id="sub_btn"/>
                         <br/>
-
-                        <h3>
-                            ${requestScope.message}
-                        </h3>
-
                     </form>
                 </div>
 
@@ -94,6 +106,7 @@
         </div>
     </div>
 </div>
+
 <%@ include file="/common/Bottom.jsp" %>
 </body>
 

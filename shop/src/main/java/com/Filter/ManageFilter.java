@@ -6,7 +6,6 @@ import com.shop.dao.impl.UserDaoImpl;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.logging.LogRecord;
 
 public class ManageFilter implements Filter {
 
@@ -22,15 +21,17 @@ public class ManageFilter implements Filter {
         UserDao userDao = new UserDaoImpl();
         String username = servletRequest.getParameter("username");
         String pwd = servletRequest.getParameter("password");
-        if (username == null || username.isEmpty()) {
-            System.out.println("没有权限,返回登录页");
-            httpServletRequest.getRequestDispatcher("/pages/user/login.jsp").forward(servletRequest, servletResponse);
-        }
-        if (userDao.login(username, pwd)) {
-            filterChain.doFilter(servletRequest, servletResponse);
-        } else {
-            httpServletRequest.getRequestDispatcher("/pages/user/login.jsp").forward(servletRequest, servletResponse);
-        }
+        filterChain.doFilter(servletRequest, servletResponse);
+
+//        if (username == null || username.isEmpty()) {
+//            System.out.println("没有权限,返回登录页");
+//            httpServletRequest.getRequestDispatcher("/pages/user/login.jsp").forward(servletRequest, servletResponse);
+//        }
+//        if (userDao.login(username, pwd)) {
+//            filterChain.doFilter(servletRequest, servletResponse);
+//        } else {
+//            httpServletRequest.getRequestDispatcher("/pages/user/login.jsp").forward(servletRequest, servletResponse);
+//        }
     }
 
     @Override

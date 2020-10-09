@@ -22,9 +22,9 @@
         $(function () {
             $("#username").focusout(function () {
                 $.ajax({
-                    url: "http://localhost:8080/shop_war_exploded2/RegistServlet",
-                    data: {action: $("#username").val()},
-                    type: "GET",
+                    url: "http://localhost:8080/shop_war_exploded2/UserServlet",
+                    data: {action: "registHelp", username: $("#username").val()},
+                    type: "POST",
                     success: function (data) {
                         //alert("服务器返回的数据是：" + data);
                         //var jsonObj = JSON.parse(data);
@@ -32,6 +32,13 @@
                     },
                     dataType: "text"
                 })
+            });
+            $("#code_img").click(function () {
+
+                // 在事件响应的function 函数中有一个this 对象。这个this 对象，是当前正在响应事件的dom 对象
+                // src 属性表示验证码 img 标签的 图片路径。它可读，可写
+                // alert(this.src);
+                this.src = "${basePath}kaptcha.jpg?d=" + new Date();
             });
             //给注册添加单击事件
             $("#sub_btn").click(function () {
@@ -113,13 +120,14 @@
                     <span class="errorMsg"></span>
                 </div>
                 <div class="form">
-                    <form action="RegistServlet" method="post">
+                    <form action="UserServlet" method="post">
+                        <input type="hidden" name="action" value="regist">
                         <br>
                         <label>用户名称：</label>
                         <input class="itxt" type="text" placeholder="请输入用户名" autocomplete="off" tabindex="1"
                                name="username" id="username"/>
-                        <span id="span1"></span>
                         <br/>
+                        <span id="span1"></span>
                         <br/>
                         <label>用户密码：</label>
                         <input class="itxt" type="password" placeholder="请输入密码" autocomplete="off" tabindex="1"
@@ -138,7 +146,7 @@
                         <br/>
                         <label>验证码：</label>
                         <input class="itxt" type="text" style="width: 150px;" id="code" name="code"/>
-                        <img alt="" src="kaptcha.jpg" style="float: right; margin-right: 40px">
+                        <img alt="" src="kaptcha.jpg" style="float: right; margin-right: 40px" id="code_img">
                         <br/>
                         <span id="info">${info}</span>
                         <br/>
